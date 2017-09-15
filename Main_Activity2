@@ -1,0 +1,95 @@
+This is the back end for Android_xml2 . it is in Java.
+package approutes.marksy;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity2 extends AppCompatActivity {
+    Button button;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+        final EditText cia1 = (EditText) findViewById(R.id.T1);
+        final EditText cia2 = (EditText) findViewById(R.id.T2);
+        final  EditText cia3 = (EditText) findViewById(R.id.T3);
+        final  EditText atnd = (EditText) findViewById(R.id.T4);
+        final EditText epct = (EditText) findViewById(R.id.T5);
+
+        final EditText result = (EditText) findViewById(R.id.T7);
+        button = (Button) findViewById(R.id.T6);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s1 = cia1.getText().toString();
+                String s2 = cia2.getText().toString();
+                String s3 = cia3.getText().toString();
+                String s4 = atnd.getText().toString();
+                String s5 = epct.getText().toString();
+                if (TextUtils.isEmpty(s1)){
+                    cia1.setError("Enter the cia 1 marks");
+                    cia1.requestFocus();
+                }
+                if (TextUtils.isEmpty(s2)){
+                    cia2.setError("Enter the Mid sem marks");
+                    cia2.requestFocus();
+                }
+                if (TextUtils.isEmpty(s3)){
+                    cia3.setError("Enter the CIA3 marks");
+                    cia3.requestFocus();
+                }
+                if (TextUtils.isEmpty(s4)){
+                    atnd.setError("Enter the attendance percentage");
+                    atnd.requestFocus();
+                }
+                if (TextUtils.isEmpty(s5)){
+                    epct.setError("Enter the expected marks you want to score Baba");
+                    epct.requestFocus();
+                }
+                float c1 = Float.parseFloat(s1);
+                float c2 = Float.parseFloat(s2);
+                float c3 = Float.parseFloat(s3);
+                float c4 = Float.parseFloat(s4);
+                float c5 = Float.parseFloat(s5);
+                float sum = calsum(c1, c2, c3);
+                float avg = calavg(sum, c4);
+                float to = calto(avg, c5);
+
+                result.setText(String.valueOf(to));
+
+            }
+        });
+    }
+    public float calsum(float c1, float c2, float c3){
+        return (float) (c1+c2+c3);
+    }
+    public float calavg(float sum, float c4){
+        if (c4 >= 95 && c4 < 100 ){
+            return (float) ((sum + 10 )/ 2);
+        }
+       else if (c4 >= 90 && c4 < 95 ){
+            return (float) ((sum + 8)/ 2);
+        }
+        else if (c4 >= 85 && c4 < 90){
+            return (float) ((sum + 6)/ 2);
+        }
+        else if (c4 >= 80 && c4 < 85) {
+            return (float) ((sum + 4) / 2);
+        }
+            else if (c4 >= 75 && c4 < 80){
+                return (float) ((sum + 2)/ 2);
+        }
+        else {
+            return (float) ((sum)/ 2);
+        }
+    }
+    public float calto(float avg, float c5){
+        return (float) ((c5 - avg) * 2);
+
+    }
+}
