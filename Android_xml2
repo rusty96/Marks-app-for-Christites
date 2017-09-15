@@ -1,0 +1,89 @@
+this is the front end for the calculating the marks.
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="approutes.marksy.MainActivity2">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate_marks_to_score_in_end_sem"
+        android:textSize="20sp"
+        android:id="@+id/T"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_the_cia1_marks"
+        android:layout_below="@+id/T"
+        android:inputType="number"
+        android:ems="10"
+        android:paddingTop="20dp"
+        android:id="@+id/T1" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_the_cia2_marks"
+        android:id="@+id/T2"
+        android:ems="10"
+        android:inputType="number"
+        android:paddingTop="20dp"
+        android:layout_below="@+id/T1"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_the_cia3_marks"
+        android:id="@+id/T3"
+        android:ems="10"
+        android:paddingTop="20dp"
+        android:inputType="number"
+        android:layout_below="@+id/T2"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_your_attendance_percentage"
+        android:id="@+id/T4"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_below="@+id/T3"
+        android:paddingTop="20dp"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/click"
+        android:paddingTop="20dp"
+        android:id="@+id/T6"
+        android:layout_below="@+id/T5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp" />
+
+
+    <EditText
+        android:id="@+id/T7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/expected_marks_score_100"
+        android:layout_marginBottom="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/T5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/enter_the_expected_marks"
+        android:layout_below="@+id/T4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="22dp" />
+</RelativeLayout>
